@@ -21,6 +21,7 @@ import { ChatProvider } from '@/context/ChatContext'
 import { ActionsProvider } from '@/context/ActionsContext'
 import { EmailInterneProvider } from '@/context/EmailInterneContext'
 import { FormulairesProvider } from '@/context/FormulairesContext'
+import { CampagnesProvider } from '@/context/CampagnesContext'
 import { AuthProvider } from '@/context/AuthContext'
 import { PorteAuth } from '@/pages/auth/Ecrans'
 import './index.css'
@@ -64,9 +65,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                                       <ActionsProvider>
                                        <EmailInterneProvider>
                                         <FormulairesProvider>
-                                          <PorteAuth>
-                                            <App />
-                                          </PorteAuth>
+                                          <CampagnesProvider>
+                                            <PorteAuth>
+                                              <App />
+                                            </PorteAuth>
+                                          </CampagnesProvider>
                                         </FormulairesProvider>
                                        </EmailInterneProvider>
                                       </ActionsProvider>
