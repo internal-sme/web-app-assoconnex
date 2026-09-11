@@ -72,6 +72,14 @@ import { ActionsListe } from '@/pages/actions/ActionsListe'
 import { ActionFiche } from '@/pages/actions/ActionFiche'
 import { ChatPage } from '@/pages/chat/ChatPage'
 import { MentionsChat, NouveauChat, ParametresSalon, RechercheChat } from '@/pages/chat/ChatAnnexes'
+import { ListeFormulaires, FormulairesArchives } from '@/pages/formulaires/ListeFormulaires'
+import { NouveauFormulaire } from '@/pages/formulaires/NouveauFormulaire'
+import { Editeur as FormulaireEditeur } from '@/pages/formulaires/Editeur'
+import { Previsualisation as FormulairePrevisualisation } from '@/pages/formulaires/Previsualisation'
+import { FormulaireParametres } from '@/pages/formulaires/Parametres'
+import { FormulairePublication } from '@/pages/formulaires/Publication'
+import { FormulaireReponses, FormulaireReponseDetail } from '@/pages/formulaires/Reponses'
+import { FormulaireStatistiques } from '@/pages/formulaires/Statistiques'
 import { ModuleAVenir, fichesModules } from '@/pages/ModuleAVenir'
 import { Parametres } from '@/pages/Parametres'
 import { DesignSystem } from '@/pages/DesignSystem'
@@ -225,6 +233,17 @@ export default function App() {
         <Route path="/chat-collaboratif/recherche" element={<RechercheChat />} />
         <Route path="/chat-collaboratif/:id" element={<ChatPage />} />
         <Route path="/chat-collaboratif/:id/parametres" element={<ParametresSalon />} />
+
+        <Route path="/formulaires" element={<ListeFormulaires />} />
+        <Route path="/formulaires/archives" element={<FormulairesArchives />} />
+        <Route path="/formulaires/nouveau" element={<NouveauFormulaire />} />
+        <Route path="/formulaires/:id/editeur" element={<FormulaireEditeur />} />
+        <Route path="/formulaires/:id/apercu" element={<FormulairePrevisualisation />} />
+        <Route path="/formulaires/:id/parametres" element={<FormulaireParametres />} />
+        <Route path="/formulaires/:id/publication" element={<FormulairePublication />} />
+        <Route path="/formulaires/:id/reponses" element={<FormulaireReponses />} />
+        <Route path="/formulaires/:id/reponses/:reponseId" element={<FormulaireReponseDetail />} />
+        <Route path="/formulaires/:id/statistiques" element={<FormulaireStatistiques />} />
 
         {Object.entries(fichesModules).map(([cle, fiche]) => (
           <Route key={cle} path={`/${cle}`} element={<ModuleAVenir fiche={fiche} />} />

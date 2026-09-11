@@ -90,6 +90,8 @@ export type StatusKey =
   | 'action_publiee' | 'action_brouillon' | 'action_partenariat' | 'action_seule'
   // Email interne
   | 'mail_envoi' | 'mail_echec' | 'mail_important' | 'mail_accuse_recu' | 'mail_accuse_attente'
+  // Formulaires
+  | 'form_brouillon' | 'form_publie' | 'form_ferme' | 'form_archive'
 
 export const statusMap: Record<StatusKey, { label: string; tone: StatusTone }> = {
   actif: { label: 'Actif', tone: 'success' },
@@ -214,6 +216,10 @@ export const statusMap: Record<StatusKey, { label: string; tone: StatusTone }> =
   mail_important: { label: 'Important', tone: 'warning' },
   mail_accuse_recu: { label: 'Accusé reçu', tone: 'success' },
   mail_accuse_attente: { label: 'Accusé en attente', tone: 'warning' },
+  form_brouillon: { label: 'Brouillon', tone: 'neutral' },
+  form_publie: { label: 'Publié', tone: 'success' },
+  form_ferme: { label: 'Fermé', tone: 'warning' },
+  form_archive: { label: 'Archivé', tone: 'neutral' },
 }
 
 export function StatusBadge({ status, className }: { status: StatusKey; className?: string }) {
