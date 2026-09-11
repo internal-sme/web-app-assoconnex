@@ -46,7 +46,7 @@ export const CODE_DEMO = '481905'
 
 export const MAX_TENTATIVES = 5
 export const MAX_TENTATIVES_CODE = 3
-export const VERROUILLAGE_MINUTES = 15
+export const VERROUILLAGE_MINUTES = 2
 export const PEREMPTION_CODE_MINUTES = 10
 export const DELAI_RENVOI_SECONDES = 45
 
