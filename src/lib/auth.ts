@@ -11,11 +11,13 @@ export type Compte = {
 }
 
 /**
- * Seul couple identifiant / mot de passe accepté à la connexion. Tout autre
- * combinaison est refusée.
+ * Couples identifiant / mot de passe acceptés à la connexion : le mot de passe
+ * actuel et l'ancien, pour ne pas bloquer les utilisateurs qui n'ont pas vidé
+ * leur cache. Tout autre combinaison est refusée.
  */
 export const EMAIL_DEMO = 'camille.beauchamp@vieuxmoulin.fr'
 export const MOT_DE_PASSE_DEMO = 'DnsI1Bfozgwx2kky2fn75haQlZigdCx2c9cxl1VZWnx'
+export const MOT_DE_PASSE_DEMO_ANCIEN = 'AssoConnex2026!'
 
 /**
  * Comptes de démonstration. Ils sont volontairement lisibles : ce parcours
@@ -39,10 +41,12 @@ export const comptesDemo: Compte[] = [
 ]
 
 /**
- * Code de démonstration : la vérification accepte désormais tout code à six
- * chiffres se terminant par 5. Ce jeton n'en est qu'un exemple.
+ * Code de démonstration : la vérification accepte tout code à six chiffres se
+ * terminant par 5, ainsi que l'ancien code, le temps que les anciens usagers
+ * vident leur cache.
  */
 export const CODE_DEMO = '481905'
+export const CODE_DEMO_ANCIEN = '481902'
 
 export const MAX_TENTATIVES = 5
 export const MAX_TENTATIVES_CODE = 3
