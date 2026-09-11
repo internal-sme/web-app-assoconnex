@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ring: 35 100 170; /* #2364AA */
+    --focus-width: 2px;
+    --focus-offset: 2px;
+  }
+
+  /*
+   * L'application occupe exactement la hauteur de son conteneur, jamais celle
+   * de la fenêtre : dans une iframe redimensionnée par son hôte, une hauteur
+   * en vh laisse une bande blanche sous le contenu.
+   */
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Centre d'accessibilité — taille du texte */
+  html[data-text-size='sm'] { font-size: 14px; }
+  html[data-text-size='md'] { font-size: 16px; }
+  html[data-text-size='lg'] { font-size: 18px; }
+  html[data-text-size='xl'] { font-size: 20px; }
+
+  body {
+    @apply bg-white text-ink-900 font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    /* Le défilement se fait dans la zone de contenu, jamais sur la page */
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  * { @apply border-ink-200; }
+
+  /* Focus clavier visible sur l'ensemble de l'application */
+  :focus-visible {
+    outline: var(--focus-width) solid rgb(var(--ring));
+    outline-offset: var(--focus-offset);
+    border-radius: 4px;
+  }
+  html[data-focus='strong'] {
+    --focus-width: 3px;
+    --focus-offset: 3px;
+  }
+  html[data-focus='strong'] :focus-visible {
+    box-shadow: 0 0 0 6px rgb(var(--ring) / 0.18);
+  }
+
+  /* Contraste renforcé */
+  html[data-contrast='high'] {
+    --ring: 17 44 75;
+  }
+  html[data-contrast='high'] body { @apply text-ink-950; }
+  html[data-contrast='high'] .text-ink-500,
+  html[data-contrast='high'] .text-ink-500 { @apply text-ink-700 !important; }
+  html[data-contrast='high'] .border-ink-100,
+  html[data-contrast='high'] .border-ink-200 { @apply border-ink-400 !important; }
+  html[data-contrast='high'] .bg-ink-50 { @apply bg-white !important; }
+  html[data-contrast='high'] .shadow-xs,
+  html[data-contrast='high'] .shadow-sm { box-shadow: none !important; }
+
+  /* Réduction des animations */
+  html[data-motion='reduced'] *,
+  html[data-motion='reduced'] *::before,
+  html[data-motion='reduced'] *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  ::selection { @apply bg-brand-100 text-brand-900; }
+}
+
+@layer components {
+  .ac-skip-link {
+    @apply absolute left-3 top-3 z-[100] -translate-y-24 rounded-lg bg-brand-500 px-4 py-2
+           text-sm font-medium text-white transition-transform focus:translate-y-0;
+  }
+  .ac-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #C7CCD5 transparent;
+    /* Arrivé en bout de course, le défilement ne se propage pas au parent */
+    overscroll-behavior: contain;
+  }
+  .ac-scroll::-webkit-scrollbar { width: 10px; height: 10px; }
+  .ac-scroll::-webkit-scrollbar-thumb {
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background-color: #C7CCD5;
+  }
+  .ac-num { font-variant-numeric: tabular-nums; }
+  /* Le « ° » du logo, repris comme marqueur structurel du produit */
+  .ac-degree::after {
+    content: '°';
+    @apply text-brand-500;
+  }
+}
