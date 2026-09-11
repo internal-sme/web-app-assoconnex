@@ -85,23 +85,6 @@ export function ModuleAVenir({ fiche }: { fiche: FicheModule }) {
 }
 
 export const fichesModules: Record<string, FicheModule> = {
-  'campagnes-emailing': {
-    eyebrow: 'Campagne d’emailing',
-    titre: 'Campagne d’emailing',
-    description:
-      "Les envois groupés aux adhérents et aux contacts, dans le respect des consentements déjà enregistrés. À distinguer de l'email interne, qui traite l'échange individuel.",
-    perimetre: [
-      'Composition à partir de modèles réutilisables.',
-      'Segments construits sur les groupes, tags et statuts d’adhésion.',
-      'Respect strict des préférences de communication par contact.',
-      'Suivi des ouvertures, des clics et des désinscriptions.',
-      'Programmation et envoi de test.',
-    ],
-    appuis: [
-      { label: 'Contacts — segments, groupes et consentements', to: '/contacts' },
-      { label: 'Adhérents — relances de cotisation', to: '/adherents' },
-    ],
-  },
   notifications: {
     eyebrow: 'Notifications',
     titre: 'Notifications',

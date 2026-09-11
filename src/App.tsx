@@ -80,6 +80,14 @@ import { FormulaireParametres } from '@/pages/formulaires/Parametres'
 import { FormulairePublication } from '@/pages/formulaires/Publication'
 import { FormulaireReponses, FormulaireReponseDetail } from '@/pages/formulaires/Reponses'
 import { FormulaireStatistiques } from '@/pages/formulaires/Statistiques'
+import { CampTableauBord } from '@/pages/campagnes/CampTableauBord'
+import { CampListe } from '@/pages/campagnes/CampListe'
+import { CampNouvelle } from '@/pages/campagnes/CampNouvelle'
+import { CampFiche } from '@/pages/campagnes/CampFiche'
+import { Segments } from '@/pages/campagnes/Segments'
+import { SegmentForm } from '@/pages/campagnes/SegmentForm'
+import { Modeles as ModelesCampagnes } from '@/pages/campagnes/Modeles'
+import { Desinscriptions } from '@/pages/campagnes/Desinscriptions'
 import { ModuleAVenir, fichesModules } from '@/pages/ModuleAVenir'
 import { Parametres } from '@/pages/Parametres'
 import { DesignSystem } from '@/pages/DesignSystem'
@@ -234,7 +242,7 @@ export default function App() {
         <Route path="/chat-collaboratif/:id" element={<ChatPage />} />
         <Route path="/chat-collaboratif/:id/parametres" element={<ParametresSalon />} />
 
-        <Route path="/formulaires" element={<ListeFormulaires />} />
+<Route path="/formulaires" element={<ListeFormulaires />} />
         <Route path="/formulaires/archives" element={<FormulairesArchives />} />
         <Route path="/formulaires/nouveau" element={<NouveauFormulaire />} />
         <Route path="/formulaires/:id/editeur" element={<FormulaireEditeur />} />
@@ -244,6 +252,16 @@ export default function App() {
         <Route path="/formulaires/:id/reponses" element={<FormulaireReponses />} />
         <Route path="/formulaires/:id/reponses/:reponseId" element={<FormulaireReponseDetail />} />
         <Route path="/formulaires/:id/statistiques" element={<FormulaireStatistiques />} />
+
+        <Route path="/campagnes-emailing" element={<CampTableauBord />} />
+        <Route path="/campagnes-emailing/liste" element={<CampListe />} />
+        <Route path="/campagnes-emailing/nouvelle" element={<CampNouvelle />} />
+        <Route path="/campagnes-emailing/segments/nouveau" element={<SegmentForm />} />
+        <Route path="/campagnes-emailing/segments/:id/modifier" element={<SegmentForm />} />
+        <Route path="/campagnes-emailing/segments" element={<Segments />} />
+        <Route path="/campagnes-emailing/modeles" element={<ModelesCampagnes />} />
+        <Route path="/campagnes-emailing/desinscriptions" element={<Desinscriptions />} />
+        <Route path="/campagnes-emailing/:id" element={<CampFiche />} />
 
         {Object.entries(fichesModules).map(([cle, fiche]) => (
           <Route key={cle} path={`/${cle}`} element={<ModuleAVenir fiche={fiche} />} />

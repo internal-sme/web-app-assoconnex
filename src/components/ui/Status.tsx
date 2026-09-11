@@ -92,6 +92,9 @@ export type StatusKey =
   | 'mail_envoi' | 'mail_echec' | 'mail_important' | 'mail_accuse_recu' | 'mail_accuse_attente'
   // Formulaires
   | 'form_brouillon' | 'form_publie' | 'form_ferme' | 'form_archive'
+  // Campagne d'emailing
+  | 'camp_programmee' | 'camp_en_cours' | 'camp_envoyee' | 'camp_echec' | 'camp_annulee'
+  | 'dest_envoye' | 'dest_ouvert' | 'dest_clique' | 'dest_desinscrit' | 'dest_rebond'
 
 export const statusMap: Record<StatusKey, { label: string; tone: StatusTone }> = {
   actif: { label: 'Actif', tone: 'success' },
@@ -220,6 +223,16 @@ export const statusMap: Record<StatusKey, { label: string; tone: StatusTone }> =
   form_publie: { label: 'Publié', tone: 'success' },
   form_ferme: { label: 'Fermé', tone: 'warning' },
   form_archive: { label: 'Archivé', tone: 'neutral' },
+  camp_programmee: { label: 'Programmée', tone: 'warning' },
+  camp_en_cours: { label: 'Envoi en cours', tone: 'warning' },
+  camp_envoyee: { label: 'Envoyée', tone: 'success' },
+  camp_echec: { label: 'Envoi échoué', tone: 'danger' },
+  camp_annulee: { label: 'Annulée', tone: 'neutral' },
+  dest_envoye: { label: 'Envoyé', tone: 'neutral' },
+  dest_ouvert: { label: 'Ouvert', tone: 'success' },
+  dest_clique: { label: 'Clic', tone: 'success' },
+  dest_desinscrit: { label: 'Désinscrit', tone: 'warning' },
+  dest_rebond: { label: 'Adresse invalide', tone: 'danger' },
 }
 
 export function StatusBadge({ status, className }: { status: StatusKey; className?: string }) {
