@@ -20,6 +20,7 @@ import { PlanningProvider } from '@/context/PlanningContext'
 import { ChatProvider } from '@/context/ChatContext'
 import { ActionsProvider } from '@/context/ActionsContext'
 import { EmailInterneProvider } from '@/context/EmailInterneContext'
+import { FormulairesProvider } from '@/context/FormulairesContext'
 import { AuthProvider } from '@/context/AuthContext'
 import { PorteAuth } from '@/pages/auth/Ecrans'
 import './index.css'
@@ -62,9 +63,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                                     <ChatProvider>
                                       <ActionsProvider>
                                        <EmailInterneProvider>
-                                        <PorteAuth>
-                                          <App />
-                                        </PorteAuth>
+                                        <FormulairesProvider>
+                                          <PorteAuth>
+                                            <App />
+                                          </PorteAuth>
+                                        </FormulairesProvider>
                                        </EmailInterneProvider>
                                       </ActionsProvider>
                                     </ChatProvider>
