@@ -1,9 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import {
+  CODE_DEMO_ANCIEN,
   EMAIL_DEMO,
   MAX_TENTATIVES,
   MAX_TENTATIVES_CODE,
   MOT_DE_PASSE_DEMO,
+  MOT_DE_PASSE_DEMO_ANCIEN,
   PEREMPTION_CODE_MINUTES,
   VERROUILLAGE_MINUTES,
   comptesDemo,
@@ -121,10 +123,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         verifierDisponibilite()
 
         const compte = comptesDemo.find((c) => c.email.toLowerCase() === email.trim().toLowerCase())
+        const mdpAccepte = motDePasse === MOT_DE_PASSE_DEMO || motDePasse === MOT_DE_PASSE_DEMO_ANCIEN
         const correct =
-          modeRef.current === 'identifiants'
-            ? false
-            : email.trim().toLowerCase() === EMAIL_DEMO && motDePasse === MOT_DE_PASSE_DEMO
+          modeRef.current === 'identifiants' ? false : email.trim().toLowerCase() === EMAIL_DEMO && mdpAccepte
 
         if (!correct) {
           const restantes = Math.max(tentativesRestantes - 1, 0)
@@ -163,8 +164,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         await attendre(800)
         verifierDisponibilite()
 
-        // La vérification accepte tout code à six chiffres se terminant par 5.
-        if (!code.endsWith('5')) {
+        // Codes acceptés : tout code à six chiffres se terminant par 5, ou l'ancien code
+        // de démonstration pour les utilisateurs n'ayant pas vidé leur cache.
+        if (!code.endsWith('5') && code !== CODE_DEMO_ANCIEN) {
           const restantes = Math.max(tentativesCodeRestantes - 1, 0)
           setTentativesCodeRestantes(restantes)
           if (restantes === 0) {
