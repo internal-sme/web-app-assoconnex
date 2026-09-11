@@ -117,22 +117,6 @@ export const fichesModules: Record<string, FicheModule> = {
       { label: 'Signature électronique — relances de signature', to: '/signatures' },
     ],
   },
-  formulaires: {
-    eyebrow: 'Formulaires',
-    titre: 'Formulaires',
-    description: "Les formulaires publics et internes : adhésion en ligne, inscription aux ateliers, appels à bénévoles.",
-    perimetre: [
-      'Constructeur de formulaire par glisser-déposer.',
-      'Publication par lien public ou intégration sur le site.',
-      'Création automatique du contact ou de l’adhésion à la réception.',
-      'Paiement en ligne rattaché à la facturation.',
-      'Export des réponses et suivi des remplissages.',
-    ],
-    appuis: [
-      { label: 'Contacts — création automatique des fiches', to: '/contacts' },
-      { label: 'Adhérents — adhésion en ligne', to: '/adherents' },
-    ],
-  },
   inventaire: {
     eyebrow: 'Inventaire',
     titre: 'Inventaire',

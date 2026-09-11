@@ -1,9 +1,9 @@
-import { forwardRef, useId, type InputHTMLAttributes } from 'react'
+import { forwardRef, useId, type InputHTMLAttributes, type ReactNode } from 'react'
 import { Check, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label?: string
+  label?: ReactNode
   description?: string
   indeterminate?: boolean
 }
@@ -37,6 +37,43 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
             strokeWidth={3.5}
           />
         )}
+      </span>
+      {(label || description) && (
+        <span className="flex flex-col gap-0.5">
+          {label && (
+            <label htmlFor={id} className="cursor-pointer text-sm text-ink-800">
+              {label}
+            </label>
+          )}
+          {description && <span className="text-xs text-ink-500">{description}</span>}
+        </span>
+      )}
+    </div>
+  )
+})
+
+export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+  label?: ReactNode
+  description?: string
+}
+
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(function Radio(
+  { className, label, description, id: idProp, ...props },
+  ref,
+) {
+  const auto = useId()
+  const id = idProp ?? auto
+  return (
+    <div className={cn('flex items-start gap-2.5', className)}>
+      <span className="relative flex h-5 items-center">
+        <input
+          ref={ref}
+          id={id}
+          type="radio"
+          className="peer h-[1.125rem] w-[1.125rem] shrink-0 cursor-pointer appearance-none rounded-full border border-ink-300 bg-white transition-colors checked:border-brand-500 hover:border-ink-400 disabled:cursor-not-allowed disabled:bg-ink-100"
+          {...props}
+        />
+        <span className="pointer-events-none absolute left-[0.34375rem] top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-brand-500 opacity-0 peer-checked:opacity-100" />
       </span>
       {(label || description) && (
         <span className="flex flex-col gap-0.5">
