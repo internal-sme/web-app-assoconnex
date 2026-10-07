@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, Lock, MailCheck, RotateCw, ShieldCheck } from 'lucide-react'
+import logoCompteAsso from '@/assets/le-compte-asso-lca.jpg'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { Field } from '@/components/ui/Field'
@@ -7,6 +8,7 @@ import { Input } from '@/components/ui/Input'
 import { Checkbox } from '@/components/ui/Toggle'
 import { CoquilleAuth, MessageErreur } from '@/pages/auth/Coquille'
 import { useAuth } from '@/context/AuthContext'
+import { useToast } from '@/context/ToastContext'
 import {
   DELAI_RENVOI_SECONDES,
   formatCompteARebours,
@@ -20,6 +22,7 @@ import {
 
 export function EcranConnexion() {
   const { connecter, chargement, verrouillage, tentativesRestantes, allerA } = useAuth()
+  const { toast } = useToast()
   const [email, setEmail] = useState('')
   const [motDePasse, setMotDePasse] = useState('')
   const [visible, setVisible] = useState(false)
@@ -120,6 +123,27 @@ export function EcranConnexion() {
           iconRight={<ArrowRight aria-hidden className="h-4 w-4" />}
         >
           Se connecter
+        </Button>
+
+        <div className="flex items-center gap-3" aria-hidden>
+          <span className="h-px flex-1 bg-ink-200" />
+          <span className="text-2xs font-medium uppercase tracking-wide text-ink-400">ou</span>
+          <span className="h-px flex-1 bg-ink-200" />
+        </div>
+
+        <Button
+          variant="secondary"
+          className="w-full"
+          onClick={() =>
+            toast({
+              titre: 'Compte Asso indisponible',
+              detail: "Cette fonctionnalité n'est pas encore disponible dans votre ville.",
+              tone: 'danger',
+            })
+          }
+          iconLeft={<img src={logoCompteAsso} alt="" className="h-4 w-4 rounded-sm object-contain" />}
+        >
+          Se connecter avec mon compte Asso
         </Button>
       </div>
     </CoquilleAuth>
