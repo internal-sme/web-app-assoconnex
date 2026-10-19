@@ -117,12 +117,11 @@ export function CoquilleAuth({
               La gestion associative, et ce que les autres oublient : travailler ensemble.
             </p>
             <p className="mt-5 text-[0.9375rem] leading-relaxed text-white/60">
-              Adhérents, comptabilité, projets, agenda et planning dans un même produit. Et des salons partagés avec les
-              associations de votre ville, parce qu'une action se mène rarement seul.
+              Adhérents, comptabilité, projets, agenda et planning dans un même produit. Et des salons partagés avec les associations de votre ville, parce qu'une action se mène rarement seul.
             </p>
 
             <ul className="mt-8 flex flex-col gap-2.5">
-              {['Vingt-deux modules pensés pour le quotidien associatif', 'Collaboration inter-associations native', 'Accessible, sobre, en français'].map((t) => (
+              {['Le portail logiciel AssoConnex° est en phase de prototype pour les associations de Castres-Mazamet.', 'L’application mobile est également en cours de prototypage.', 'Explorez les modules et partagez vos idées pour faire évoluer l’outil ensemble !'].map((t) => (
                 <li key={t} className="flex items-center gap-2.5 text-[0.8125rem] text-white/70">
                   <span aria-hidden className="h-1 w-1 rounded-full bg-brand-400" />
                   {t}
