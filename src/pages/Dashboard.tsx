@@ -46,7 +46,17 @@ export function Dashboard() {
         <PageHeader
           eyebrow={org.type}
           title={`Bonjour, voici ${org.nom}`}
-          description="Une vue d'ensemble de l'activité. Chaque indicateur renvoie vers le module qui le produit."
+          description={
+            <>
+              Le portail logiciel AssoConnex° est en phase de prototype pour les associations de Castres-Mazamet.
+              <br />
+              <br />
+              L’application mobile est également en cours de prototypage.
+              <br />
+              <br />
+              Explorez les modules et partagez vos idées pour faire évoluer l’outil ensemble !
+            </>
+          }
           meta={<Badge variant="brand">Exercice {EXERCICE_COURANT}</Badge>}
           actions={
             <>
