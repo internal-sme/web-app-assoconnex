@@ -14,7 +14,7 @@ export function PageHeader({
 }: {
   eyebrow?: string
   title: string
-  description?: string
+  description?: ReactNode
   actions?: ReactNode
   meta?: ReactNode
 }) {
@@ -25,7 +25,13 @@ export function PageHeader({
           <p className="mb-1.5 text-2xs font-semibold uppercase tracking-[0.08em] text-ink-500">{eyebrow}</p>
         )}
         <h1 className="font-display text-[1.375rem] font-semibold leading-tight tracking-tight text-ink-950">{title}</h1>
-        {description && <p className="mt-1.5 max-w-2xl text-[0.875rem] leading-relaxed text-ink-500">{description}</p>}
+        {description && (
+          typeof description === 'string' ? (
+            <p className="mt-1.5 max-w-2xl text-[0.875rem] leading-relaxed text-ink-500">{description}</p>
+          ) : (
+            <div className="mt-1.5 max-w-2xl text-[0.875rem] leading-relaxed text-ink-500">{description}</div>
+          )
+        )}
         {meta && <div className="mt-3 flex flex-wrap items-center gap-2">{meta}</div>}
       </div>
       {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
