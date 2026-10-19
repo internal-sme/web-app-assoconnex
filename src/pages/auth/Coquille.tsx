@@ -127,7 +127,7 @@ export function CoquilleAuth({
             </p>
 
             <ul className="mt-8 flex flex-col gap-2.5">
-              {['Prototype actif sur Castres-Mazamet', 'Application mobile en cours de prototypage', 'Votre retour guide les prochaines évolutions'].map((t) => (
+              {['Vingt-deux modules pensés pour le quotidien associatif', 'Collaboration inter-associations native', 'Accessible, sobre, en français'].map((t) => (
                 <li key={t} className="flex items-center gap-2.5 text-[0.8125rem] text-white/70">
                   <span aria-hidden className="h-1 w-1 rounded-full bg-brand-400" />
                   {t}
