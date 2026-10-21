@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, FileText, Plus, Send, Trash2 } from 'lucide-react'
@@ -21,6 +22,8 @@ function ligneVide(): LigneFacture {
 }
 
 export function FactureForm({ mode }: { mode: 'creation' | 'modification' | 'avoir' }) {
+  usePageTitle('Nouvelle facture')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

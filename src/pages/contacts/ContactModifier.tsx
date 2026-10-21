@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type FormEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
@@ -13,6 +14,8 @@ import { useToast } from '@/context/ToastContext'
 import { toInputDate } from '@/lib/utils'
 
 export function ContactModifier() {
+  usePageTitle('Modifier un contact')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { parId, modifier, chargement } = useContacts()

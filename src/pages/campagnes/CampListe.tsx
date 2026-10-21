@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Megaphone, PencilLine, Plus, Send, Trash2, UserRound } from 'lucide-react'
@@ -32,6 +33,8 @@ const vues: { id: Vue; label: string }[] = [
 ]
 
 export function CampListe() {
+  usePageTitle("Campagnes d'emailing")
+
   const navigate = useNavigate()
   const { campagnes, chargement, supprimer } = useCampagnes()
   const [vue, setVue] = useState<Vue>('toutes')

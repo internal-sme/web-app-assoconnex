@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { AtSign, CalendarClock, Send, Sparkles } from 'lucide-react'
@@ -26,6 +27,8 @@ import {
 import { cn, toInputDate } from '@/lib/utils'
 
 export function CampNouvelle() {
+  usePageTitle('Nouvelle campagne')
+
   const navigate = useNavigate()
   const [params] = useSearchParams()
   const { campagnes, modeles, segments, desinscritsIds, envoyer, programmer, envoyerTest } = useCampagnes()

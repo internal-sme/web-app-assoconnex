@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Ban, Copy, Download, Eye, FileText, Plus, RefreshCw, Send, Wallet } from 'lucide-react'
@@ -20,6 +21,8 @@ import { joursRetard, resteDuFacture, statutFacture, totalTTC, type Facture } fr
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function FacturesListe({ type = 'facture' }: { type?: 'facture' | 'avoir' }) {
+  usePageTitle('Factures')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { factures, clients, chargement, erreur, recharger, dupliquer, envoyer, annuler } = useFacturation()

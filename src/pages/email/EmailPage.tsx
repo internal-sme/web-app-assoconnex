@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
@@ -155,6 +156,8 @@ function MessageLu({ message, onReessayer }: { message: Message; onReessayer: (m
 }
 
 export function EmailPage() {
+  usePageTitle('Messagerie interne')
+
   const { filId } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
@@ -41,6 +42,8 @@ const modes: { value: ModeDemo; label: string }[] = [
 ]
 
 export function ContactsListe() {
+  usePageTitle('Contacts')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { contacts, groupes, chargement, erreur, recharger, mode, setMode, supprimer, archiver, ajouterAuGroupe } =

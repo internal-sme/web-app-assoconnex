@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CheckCircle2, Pencil, Plus, RefreshCw, Scale, Trash2, Eye } from 'lucide-react'
@@ -17,6 +18,8 @@ import { equilibree, journaux, totalDebit, type Ecriture } from '@/lib/comptabil
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function Journal() {
+  usePageTitle('Journal')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { ecritures, exercice, exerciceId, lectureSeule, chargement, erreur, recharger, validerEcritures, supprimerEcriture } =

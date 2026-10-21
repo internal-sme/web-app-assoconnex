@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, ListChecks } from 'lucide-react'
@@ -31,6 +32,8 @@ const projets = [
 ]
 
 export function TacheForm({ mode }: { mode: 'creation' | 'modification' }) {
+  usePageTitle('Tâche')
+
   const { id = '' } = useParams()
   const [params] = useSearchParams()
   const navigate = useNavigate()

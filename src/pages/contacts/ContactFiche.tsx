@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
@@ -55,6 +56,8 @@ function Vide({ children = 'Non renseigné' }: { children?: ReactNode }) {
 }
 
 export function ContactFiche() {
+  usePageTitle('Contacts')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
@@ -62,6 +63,8 @@ function memeJour(a: string, b: string) {
 }
 
 export function ChatPage() {
+  usePageTitle('Messagerie')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Plus, Scale, Trash2 } from 'lucide-react'
@@ -21,6 +22,8 @@ function ligneVide(): LigneEcriture {
 const arrondi = (n: number) => Math.round(n * 100) / 100
 
 export function EcritureForm({ mode }: { mode: 'creation' | 'modification' }) {
+  usePageTitle('Écriture')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

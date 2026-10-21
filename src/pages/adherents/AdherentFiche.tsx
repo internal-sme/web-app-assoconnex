@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
@@ -61,6 +62,8 @@ function Ligne({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function AdherentFiche() {
+  usePageTitle('Fiche adhérent')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

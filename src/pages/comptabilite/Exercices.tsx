@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CalendarRange, Lock, ShieldCheck } from 'lucide-react'
@@ -16,6 +17,8 @@ import { equilibree, soldeClasse, type Exercice } from '@/lib/comptabilite'
 import { formatDateLong, formatDateTime, formatMoney } from '@/lib/utils'
 
 export function Exercices() {
+  usePageTitle('Exercices')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { exercices, ecritures, cloturerExercice, setExerciceId } = useCompta()

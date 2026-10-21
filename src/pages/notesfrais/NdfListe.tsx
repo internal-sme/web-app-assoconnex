@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Eye, Plus, ReceiptText, RefreshCw, Wallet, X } from 'lucide-react'
@@ -51,6 +52,8 @@ const titres: Record<VueNdf, { titre: string; description: string; vide: string 
 }
 
 export function NdfListe({ vue }: { vue: VueNdf }) {
+  usePageTitle('Notes de frais')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const {

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import {
@@ -82,6 +83,8 @@ function Arborescence({
 }
 
 export function Explorateur() {
+  usePageTitle('Documents')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const [params, setParams] = useSearchParams()

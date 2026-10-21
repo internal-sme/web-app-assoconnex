@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { FileWarning, Plus, ReceiptText, RefreshCw, Wallet } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -20,6 +21,8 @@ import {
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function NdfDashboard() {
+  usePageTitle('Notes de frais')
+
   const navigate = useNavigate()
   const { notes, natures, projets, demandeurs, chargement, erreur, recharger } = useNotesFrais()
 

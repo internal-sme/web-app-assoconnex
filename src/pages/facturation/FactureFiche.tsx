@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import {
@@ -65,6 +66,8 @@ function Ligne({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function FactureFiche() {
+  usePageTitle('Facture')
+
   const { id = '' } = useParams()
   const [params] = useSearchParams()
   const navigate = useNavigate()

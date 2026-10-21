@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Landmark, RefreshCw } from 'lucide-react'
@@ -20,6 +21,8 @@ import { formatDate, formatMoney } from '@/lib/utils'
 const arrondi = (n: number) => Math.round(n * 100) / 100
 
 export function Rapprochement() {
+  usePageTitle('Rapprochement bancaire')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { ecritures, plan, exercice, exerciceId, lectureSeule, chargement, erreur, recharger, pointer } = useCompta()

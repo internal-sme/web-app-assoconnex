@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, CheckCircle2, Eye, ListChecks, Pencil, Plus, RefreshCw, Trash2 } from 'lucide-react'
@@ -63,6 +64,8 @@ const meta: Record<VueTaches, { titre: string; description: string; vide: string
 }
 
 export function TachesListe({ vue }: { vue: VueTaches }) {
+  usePageTitle('Tâches')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { taches, chargement, erreur, recharger, changerStatut, supprimer } = useTaches()

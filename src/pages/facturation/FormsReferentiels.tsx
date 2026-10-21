@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -46,6 +47,8 @@ function Introuvable({ quoi, retour }: { quoi: string; retour: string }) {
 /* --------------------------------- Client -------------------------------- */
 
 export function ClientForm() {
+  usePageTitle('Référentiel')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

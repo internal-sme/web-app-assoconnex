@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, CheckCircle2, ListChecks, Paperclip, Pencil, Plus, Send, Trash2 } from 'lucide-react'
@@ -30,6 +31,8 @@ import {
 import { formatDate, formatDateLong, formatDateTime } from '@/lib/utils'
 
 export function TacheFiche() {
+  usePageTitle('Tâche')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

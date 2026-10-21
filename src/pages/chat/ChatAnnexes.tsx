@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, AtSign, Building2, Hash, MessageCircle, Plus, Search, Settings2, Trash2 } from 'lucide-react'
@@ -42,6 +43,8 @@ import {
 type FormeChat = 'direct' | 'association' | 'inter'
 
 export function NouveauChat() {
+  usePageTitle('Messagerie')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { creerSalon, ouvrirDirect, salons, messages } = useChat()
