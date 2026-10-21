@@ -36,7 +36,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
+          ssh_port: ${{ secrets.SSH_PORT }}
           TARGET: ${{ secrets.REMOTE_TARGET_DEPLOYMENT_PREPROD }}
           # Point this to your specific build folder. 
           # React builds go to "dist/"
