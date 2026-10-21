@@ -1,0 +1,42 @@
+name: Build and Deploy Assoconnex App
+
+on:
+  push:
+    branches:
+      - integration_stage # Triggers the workflow whenever you push to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Download the repository code to the runner
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Match your local development Node version
+          cache: 'npm'       # Automatically caches node_modules for faster subsequent builds
+
+      # Step 3: Install project dependencies
+      - name: Install Dependencies
+        run: npm ci          # Using 'npm ci' ensures clean, consistent installs based on package-lock.json
+
+      # Step 4: Build the Angular application for production
+      - name: Build Production Bundle
+        run: npm run build
+
+      # Step 5: Transfer the build folder to the server over SSH using rsync
+      - name: Deploy to Server via SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET_DEPLOYMENT_PREPROD }}
+          # Point this to your specific build folder. 
+          # React builds go to "dist/"
+          SOURCE: "dist/"
