@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Ban, Download, FileSignature, PenLine, Send, X } from 'lucide-react'
@@ -32,6 +33,8 @@ const onglets = [
 ]
 
 export function SignSuivi() {
+  usePageTitle('Suivi des signatures')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

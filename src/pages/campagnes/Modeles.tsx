@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Eye, FileText, MoreHorizontal, Plus, Trash2 } from 'lucide-react'
@@ -22,6 +23,8 @@ import type { ModeleCampagne } from '@/lib/campagnes'
 const categories = ['Adhésions', 'Vie associative', 'Événements', 'Bénévolat']
 
 export function Modeles() {
+  usePageTitle('Modèles de campagne')
+
   const navigate = useNavigate()
   const { modeles, chargement, ajouterModele, supprimerModele } = useCampagnes()
   const { toast } = useToast()

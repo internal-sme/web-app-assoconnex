@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { BookOpen, RefreshCw, Scale } from 'lucide-react'
@@ -19,6 +20,8 @@ const arrondi = (n: number) => Math.round(n * 100) / 100
 /* ------------------------------ Grand livre ------------------------------ */
 
 export function GrandLivre() {
+  usePageTitle('Grand livre / Balance')
+
   const navigate = useNavigate()
   const { ecritures, plan, exercice, exerciceId, chargement, erreur, recharger } = useCompta()
   const [filtre, setFiltre] = useState('')

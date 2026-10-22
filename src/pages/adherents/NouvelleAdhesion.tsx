@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, CreditCard, Mail, Users } from 'lucide-react'
@@ -23,6 +24,8 @@ const aujourdhui = new Date().toISOString().slice(0, 10)
 type Erreurs = Record<string, string>
 
 export function NouvelleAdhesion() {
+  usePageTitle('Nouvelle adhésion')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { types, creerAdhesion } = useAdherents()

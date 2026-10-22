@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AlertTriangle, ArrowLeft, Bell, CalendarDays, Paperclip, Plus, Trash2 } from 'lucide-react'
@@ -45,6 +46,8 @@ function assembler(date: string, heure: string) {
 }
 
 export function EvenementForm({ mode }: { mode: 'creation' | 'modification' }) {
+  usePageTitle('Événement')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { Copy, Globe, Lock, PauseCircle, PlayCircle } from 'lucide-react'
 import { Card, CardBody, CardHeader } from '@/components/ui/Card'
@@ -123,5 +124,7 @@ function CorpsPublication({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function FormulairePublication() {
+  usePageTitle('Publication')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsPublication formulaire={f} />}</FormulairePage>
 }

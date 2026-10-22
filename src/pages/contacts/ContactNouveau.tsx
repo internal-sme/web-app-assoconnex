@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
@@ -8,6 +9,8 @@ import { useContacts } from '@/context/ContactsContext'
 import { useToast } from '@/context/ToastContext'
 
 export function ContactNouveau() {
+  usePageTitle('Nouveau contact')
+
   const navigate = useNavigate()
   const { creer } = useContacts()
   const { toast } = useToast()

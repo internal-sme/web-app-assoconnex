@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, ArrowLeft, Check, UserPlus } from 'lucide-react'
@@ -30,6 +31,8 @@ import {
 } from '@/lib/planning'
 
 export function Affectation() {
+  usePageTitle('Affectation')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { affectations, absences, disponibilites, affecter } = usePlanning()

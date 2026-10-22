@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CalendarDays, ChevronLeft, ChevronRight, Plus, Users } from 'lucide-react'
@@ -29,6 +30,8 @@ const HEURE_DEBUT = 8
 const HEURE_FIN = 22
 
 export function Disponibilites() {
+  usePageTitle('Disponibilités')
+
   const navigate = useNavigate()
   const { evenements, chargement } = useAgenda()
 

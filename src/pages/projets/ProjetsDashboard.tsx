@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, FolderKanban, Plus, RefreshCw, Target } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -85,6 +86,8 @@ export function CarteProjet({ projet, onOuvrir, nbTaches }: { projet: Projet; on
 }
 
 export function ProjetsDashboard() {
+  usePageTitle('Projets')
+
   const navigate = useNavigate()
   const { projets, chargement, erreur, recharger } = useProjets()
   const { taches } = useTaches()

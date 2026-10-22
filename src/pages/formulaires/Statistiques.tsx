@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { BarChart3, Send } from 'lucide-react'
 import { Card, CardBody, CardHeader, KpiCard } from '@/components/ui/Card'
@@ -114,5 +115,7 @@ function CorpsStatistiques({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function FormulaireStatistiques() {
+  usePageTitle('Statistiques')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsStatistiques formulaire={f} />}</FormulairePage>
 }

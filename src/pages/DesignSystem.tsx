@@ -84,7 +84,10 @@ const sections = [
   { id: 'datagrid', label: 'Data grid' },
 ]
 
+import { usePageTitle } from '@/hooks/usePageTitle'
+
 export function DesignSystem() {
+  usePageTitle('Design System')
   const [tab, setTab] = useState('fondations')
   const { toast } = useToast()
 

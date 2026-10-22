@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Users } from 'lucide-react'
@@ -28,6 +29,8 @@ const vide = {
 }
 
 export function ClientForm() {
+  usePageTitle('Client')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

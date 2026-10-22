@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, Lock, MailCheck, RotateCw, ShieldCheck } from 'lucide-react'
 import logoCompteAsso from '@/assets/le-compte-asso-lca.jpg'
@@ -21,6 +22,8 @@ import {
 /* ------------------------------ Connexion ------------------------------ */
 
 export function EcranConnexion() {
+  usePageTitle('Connexion')
+
   const { connecter, chargement, verrouillage, tentativesRestantes, allerA } = useAuth()
   const { toast } = useToast()
   const [email, setEmail] = useState('')
@@ -153,6 +156,8 @@ export function EcranConnexion() {
 /* ---------------------------- Vérification ----------------------------- */
 
 export function EcranVerification() {
+  usePageTitle('Vérification')
+
   const {
     verifierCode, renvoyerCode, annulerVerification, emailEnCours,
     chargement, envoiEnCours, peremption, tentativesCodeRestantes,
@@ -319,6 +324,8 @@ export function EcranVerification() {
 /* -------------------------- Mot de passe oublié ------------------------ */
 
 export function EcranOubli() {
+  usePageTitle('Mot de passe oublié')
+
   const { demanderReinitialisation, envoiEnCours, allerA } = useAuth()
   const [email, setEmail] = useState('')
   const [erreur, setErreur] = useState<string | null>(null)
@@ -369,6 +376,8 @@ export function EcranOubli() {
 }
 
 export function EcranOubliConfirme() {
+  usePageTitle('Mot de passe oublié')
+
   const { emailEnCours, demanderReinitialisation, envoiEnCours, allerA } = useAuth()
   const [erreur, setErreur] = useState<string | null>(null)
 
@@ -429,6 +438,8 @@ export function EcranOubliConfirme() {
 /* --------------------------- Réinitialisation -------------------------- */
 
 export function EcranReinitialisation() {
+  usePageTitle('Réinitialisation du mot de passe')
+
   const { reinitialiser, chargement, allerA } = useAuth()
   const [nouveau, setNouveau] = useState('')
   const [confirmation, setConfirmation] = useState('')

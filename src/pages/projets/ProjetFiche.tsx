@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import {
@@ -82,6 +83,8 @@ const cleJalon = { a_venir: 'jalon_a_venir', atteint: 'jalon_atteint', manque: '
 const cleRisque = { ouvert: 'risque_ouvert', maitrise: 'risque_maitrise', clos: 'risque_clos' } as const
 
 export function ProjetFiche() {
+  usePageTitle('Projet')
+
   const { id = '' } = useParams()
   const [params, setParams] = useSearchParams()
   const navigate = useNavigate()

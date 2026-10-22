@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { UserRoundCheck, Users } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -12,6 +13,8 @@ import { useToast } from '@/context/ToastContext'
 import { formatDateTime } from '@/lib/utils'
 
 export function Desinscriptions() {
+  usePageTitle('Désinscriptions')
+
   const { desinscriptions, chargement, reinscrire } = useCampagnes()
   const { toast } = useToast()
 
