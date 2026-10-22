@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, BookOpen, Pencil, Plus } from 'lucide-react'
@@ -28,6 +29,8 @@ const sensOptions: { value: SensCompte; label: string }[] = [
 const compteVide: Compte = { numero: '', libelle: '', classe: 6, sens: 'charge', tresorerie: false, actif: true }
 
 export function PlanComptable() {
+  usePageTitle('Plan comptable')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { plan, ecritures, exerciceId, creerCompte, modifierCompte } = useCompta()

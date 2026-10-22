@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { FileWarning, Plus, RefreshCw, Scale } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -20,6 +21,8 @@ import {
 import { formatMoney } from '@/lib/utils'
 
 export function ComptaDashboard() {
+  usePageTitle('Comptabilité')
+
   const navigate = useNavigate()
   const { ecritures, plan, budget, exercice, exerciceId, lectureSeule, chargement, erreur, recharger } = useCompta()
 

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Package } from 'lucide-react'
@@ -19,6 +20,8 @@ const UNITES = ['forfait', 'heure', 'jour', 'séance', 'personne', 'exemplaire']
 const vide = { reference: '', nom: '', description: '', categorie: '', prixHT: '', tva: '20', unite: 'forfait', actif: true }
 
 export function PrestationForm() {
+  usePageTitle('Prestation')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

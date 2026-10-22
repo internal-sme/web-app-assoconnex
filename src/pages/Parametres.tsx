@@ -19,7 +19,10 @@ const tabs = [
   { id: 'integrations', label: 'Intégrations' },
 ]
 
+import { usePageTitle } from '@/hooks/usePageTitle'
+
 export function Parametres() {
+  usePageTitle('Paramètres')
   const [tab, setTab] = useState('organisation')
   const { org } = useOrg()
   const { toast } = useToast()

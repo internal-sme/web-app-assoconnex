@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Landmark } from 'lucide-react'
@@ -19,6 +20,8 @@ const compteVide: Omit<CompteBancaire, 'id'> = {
 }
 
 export function CompteForm() {
+  usePageTitle('Compte bancaire')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

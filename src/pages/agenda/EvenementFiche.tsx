@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AlertTriangle, ArrowLeft, Ban, Bell, CalendarDays, Check, HelpCircle, MapPin, Paperclip, Pencil, Trash2, X } from 'lucide-react'
@@ -41,6 +42,8 @@ function Ligne({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function EvenementFiche() {
+  usePageTitle('Événement')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

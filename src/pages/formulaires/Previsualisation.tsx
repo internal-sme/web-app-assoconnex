@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Laptop, LayoutTemplate, Smartphone } from 'lucide-react'
@@ -88,5 +89,7 @@ function CorpsApercu({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function Previsualisation() {
+  usePageTitle('Prévisualisation')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsApercu formulaire={f} />}</FormulairePage>
 }

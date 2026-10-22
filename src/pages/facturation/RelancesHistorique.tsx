@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { CheckCircle2, History, RefreshCw, Send } from 'lucide-react'
@@ -27,6 +28,8 @@ const niveaux = [
 ]
 
 export function Relances() {
+  usePageTitle('Relances')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { factures, clients, chargement, erreur, recharger, relancer } = useFacturation()

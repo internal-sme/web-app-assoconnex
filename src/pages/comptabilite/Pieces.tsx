@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FileText, Link2, Paperclip, Unlink } from 'lucide-react'
@@ -19,6 +20,8 @@ import { totalDebit, type Piece } from '@/lib/comptabilite'
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function Pieces() {
+  usePageTitle('Pièces justificatives')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { pieces, ecritures, exerciceId, chargement, lectureSeule, rattacherPiece } = useCompta()

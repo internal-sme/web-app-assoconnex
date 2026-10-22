@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, CalendarRange, ChevronLeft, ChevronRight, RefreshCw, UserPlus } from 'lucide-react'
@@ -65,6 +66,8 @@ const meta: Record<PorteePlanning, { titre: string; description: string; legende
 }
 
 export function PlanningGrilles({ portee }: { portee: PorteePlanning }) {
+  usePageTitle('Planning')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const {

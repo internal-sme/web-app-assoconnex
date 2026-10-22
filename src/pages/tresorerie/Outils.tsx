@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeftRight, ArrowRight, BarChart3, Landmark, Plus, Tag, Trash2, Wand2 } from 'lucide-react'
@@ -36,6 +37,8 @@ const arrondi = (n: number) => Math.round(n * 100) / 100
 /* --------------------------- Rapprochement --------------------------- */
 
 export function RapprochementTreso() {
+  usePageTitle('Outils trésorerie')
+
   const { toast } = useToast()
   const { comptes, mouvements, chargement, pointer } = useTresorerie()
   const tresorerie = comptes

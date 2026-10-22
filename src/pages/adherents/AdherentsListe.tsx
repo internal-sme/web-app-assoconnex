@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, CreditCard, LayoutDashboard, Mail, Plus, RefreshCw, RotateCw, Users } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -16,6 +17,8 @@ import { EXERCICES, joursAvant, resteDu, statutAdhesion, type Adherent } from '@
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function AdherentsListe() {
+  usePageTitle('Liste des adhérents')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { adherents, types, chargement, erreur, recharger } = useAdherents()

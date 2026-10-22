@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, FileText } from 'lucide-react'
@@ -16,6 +17,8 @@ import { useToast } from '@/context/ToastContext'
 const vide = { nom: '', description: '', mentions: '', conditions: '', pied: '', defaut: false, actif: true }
 
 export function ModeleForm() {
+  usePageTitle('Modèle de facture')
+
   const { id } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

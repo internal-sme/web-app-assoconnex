@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { FileSignature, PenLine, Plus, RefreshCw, Send } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -15,6 +16,8 @@ import { calculerKpisSign, joursAvantEcheance, maSignatureAttendue, progression,
 import { formatDate } from '@/lib/utils'
 
 export function SignDashboard() {
+  usePageTitle('Signatures électroniques')
+
   const navigate = useNavigate()
   const { demandes, chargement, erreur, recharger } = useSignatures()
 

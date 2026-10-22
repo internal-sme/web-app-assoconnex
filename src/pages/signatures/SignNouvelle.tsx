@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Plus, Send, Trash2 } from 'lucide-react'
@@ -22,6 +23,8 @@ import { formatDate, uid } from '@/lib/utils'
 const ETAPES = ['Document', 'Signataires', 'Placement des champs', 'Prévisualisation']
 
 export function SignNouvelle() {
+  usePageTitle('Nouvelle demande de signature')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { creer } = useSignatures()

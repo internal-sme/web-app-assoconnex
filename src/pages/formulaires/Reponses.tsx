@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, CheckCircle2, FileQuestion, Inbox, Paperclip, PenLine, RefreshCw, Send, XCircle } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -85,6 +86,8 @@ function CorpsReponses({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function FormulaireReponses() {
+  usePageTitle('Réponses')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsReponses formulaire={f} />}</FormulairePage>
 }
 

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { History } from 'lucide-react'
@@ -19,6 +20,8 @@ const onglets = [
 ]
 
 export function NdfHistorique() {
+  usePageTitle('Historique des notes de frais')
+
   const navigate = useNavigate()
   const { notes, demandeurs, chargement } = useNotesFrais()
   const [onglet, setOnglet] = useState('tout')

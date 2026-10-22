@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { CalendarDays, List, Plus, RefreshCw, Target } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -24,6 +25,8 @@ import {
 import { formatDate } from '@/lib/utils'
 
 export function ActionsDashboard() {
+  usePageTitle('Actions associatives')
+
   const navigate = useNavigate()
   const { actions, chargement, erreur, recharger } = useActions()
 

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useRef, useState, type DragEvent } from 'react'
 import { ArrowDown, ArrowUp, Copy, GripVertical, LayoutTemplate, RotateCcw, Save, Trash2, X } from 'lucide-react'
 import { Card, CardBody, CardHeader } from '@/components/ui/Card'
@@ -390,5 +391,7 @@ function CorpsEditeur({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function Editeur() {
+  usePageTitle('Éditeur de formulaire')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsEditeur formulaire={f} />}</FormulairePage>
 }

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Clock, FileText, RefreshCw, RotateCcw, Search, Share2, Star, Trash2 } from 'lucide-react'
@@ -85,6 +86,8 @@ function useColonnes(dossiersNom: (id: string) => string): Column<Document>[] {
 }
 
 export function VueDocuments({ vue }: { vue: VueDoc }) {
+  usePageTitle('Documents')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { documents, dossiers, chargement, erreur, recharger, restaurer, viderCorbeille, basculerPartage, basculerFavori } = useDocuments()

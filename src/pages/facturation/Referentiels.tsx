@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Building2, Hash, LayoutTemplate, Package, Pencil, Percent, Plus } from 'lucide-react'
@@ -27,6 +28,8 @@ const clientVide: Omit<Client, 'id'> = {
 }
 
 export function Clients() {
+  usePageTitle('Référentiels facturation')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { clients, factures, grilles, chargement, creerClient, modifierClient } = useFacturation()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Archive, ArchiveRestore, Check, Trash2 } from 'lucide-react'
@@ -212,5 +213,7 @@ function CorpsParametres({ formulaire }: { formulaire: Formulaire }) {
 }
 
 export function FormulaireParametres() {
+  usePageTitle('Paramètres du formulaire')
+
   return <FormulairePage eyebrow="Formulaires">{(f) => <CorpsParametres formulaire={f} />}</FormulairePage>
 }

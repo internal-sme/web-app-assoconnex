@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { PageFormulaire } from '@/components/forms/PageFormulaire'
@@ -10,6 +11,8 @@ import { useToast } from '@/context/ToastContext'
 import { definitionVide, type SegmentDefinition } from '@/lib/campagnes'
 
 export function SegmentForm() {
+  usePageTitle('Segment')
+
   const navigate = useNavigate()
   const { id } = useParams()
   const { segments, enregistrerSegment } = useCampagnes()

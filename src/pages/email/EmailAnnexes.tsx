@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FileText, Paperclip, Plus, Search, Trash2 } from 'lucide-react'
@@ -20,6 +21,8 @@ import { correspondant, correspondants, dossierLabels, horodatageMail, type Doss
 /* ------------------------------- Recherche ------------------------------ */
 
 export function RechercheEmail() {
+  usePageTitle('Messagerie interne')
+
   const navigate = useNavigate()
   const { messages } = useEmailInterne()
 

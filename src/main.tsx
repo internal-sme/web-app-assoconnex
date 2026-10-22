@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { HashRouter, MemoryRouter } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import App from './App'
 import { A11yProvider } from '@/context/A11yContext'
 import { OrgProvider } from '@/context/OrgContext'
@@ -34,7 +34,7 @@ import './index.css'
 function pickRouter() {
   try {
     new URL('/', window.location.origin)
-    return HashRouter
+    return BrowserRouter
   } catch {
     return MemoryRouter
   }

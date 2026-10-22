@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, Megaphone, Plus, RefreshCw, Send, UserRound } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -83,6 +84,8 @@ function Preparations({ campagnes }: { campagnes: Campagne[] }) {
 }
 
 export function CampTableauBord() {
+  usePageTitle("Campagnes d'emailing")
+
   const navigate = useNavigate()
   const { campagnes, desinscriptions, chargement, erreur, recharger } = useCampagnes()
 

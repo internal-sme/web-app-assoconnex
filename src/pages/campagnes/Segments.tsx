@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Filter, MoreHorizontal, PencilLine, Plus, Trash2, Users } from 'lucide-react'
@@ -13,6 +14,8 @@ import { useCampagnes } from '@/context/CampagnesContext'
 import { decompteSegment, statutAdhesionLabels, type Segment } from '@/lib/campagnes'
 
 export function Segments() {
+  usePageTitle('Segments')
+
   const navigate = useNavigate()
   const { segments, chargement, desinscritsIds, supprimerSegment } = useCampagnes()
   const [aSupprimer, setASupprimer] = useState<Segment | null>(null)

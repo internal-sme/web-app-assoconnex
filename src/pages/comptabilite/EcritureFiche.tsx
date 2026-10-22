@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, CheckCircle2, FileText, Paperclip, Pencil, Scale, Trash2 } from 'lucide-react'
@@ -18,6 +19,8 @@ import { ecart, equilibree, journaux, totalCredit, totalDebit } from '@/lib/comp
 import { formatDateLong, formatDateTime, formatMoney } from '@/lib/utils'
 
 export function EcritureFiche() {
+  usePageTitle('Écriture')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

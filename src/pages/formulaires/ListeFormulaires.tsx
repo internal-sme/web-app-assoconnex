@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Archive, ArchiveRestore, BarChart3, ClipboardList, Copy, Eye, Inbox, Plus, RefreshCw, SquarePen, Trash2 } from 'lucide-react'
@@ -50,6 +51,8 @@ function useColonnes(): Column<Formulaire>[] {
 }
 
 export function ListeFormulaires() {
+  usePageTitle('Formulaires')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { formulaires, chargement, erreur, recharger, dupliquer, archiver } = useFormulaires()
