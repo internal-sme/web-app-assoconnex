@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Camera, Check, Paperclip, ReceiptText, Scan, Send, Upload } from 'lucide-react'
@@ -20,6 +21,8 @@ import { formatMoney, toInputDate } from '@/lib/utils'
 const arrondi = (n: number) => Math.round(n * 100) / 100
 
 export function NdfForm({ mode }: { mode: 'creation' | 'modification' }) {
+  usePageTitle('Nouvelle note de frais')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

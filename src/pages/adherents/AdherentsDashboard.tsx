@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, FlaskConical, List, Plus, RefreshCw, Settings2, Users } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -30,6 +31,8 @@ const modes: { value: ModeDemoAdherents; label: string }[] = [
 ]
 
 export function AdherentsDashboard() {
+  usePageTitle('Adhésions')
+
   const navigate = useNavigate()
   const { adherents, types, chargement, erreur, recharger, mode, setMode } = useAdherents()
 

@@ -20,8 +20,10 @@ import { calculerKpisCompta } from '@/lib/comptabilite'
 import { useToast } from '@/context/ToastContext'
 import { EXERCICE_COURANT, calculerKpis, serieEvolution, statutAdhesion } from '@/lib/adherents'
 import { formatDate, formatMoney } from '@/lib/utils'
+import { usePageTitle } from '@/hooks/usePageTitle'
 
 export function Dashboard() {
+  usePageTitle('Tableau de bord')
   const { org } = useOrg()
   const navigate = useNavigate()
   const { toast } = useToast()

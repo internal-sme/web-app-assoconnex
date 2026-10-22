@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, CalendarOff, CheckCircle2, Plus, Trash2, UserCheck } from 'lucide-react'
@@ -35,6 +36,8 @@ import { formatDate } from '@/lib/utils'
 /* --------------------------- Disponibilités --------------------------- */
 
 export function DisponibilitesPlanning() {
+  usePageTitle('Ressources')
+
   const { disponibilites, basculerDisponibilite, chargement } = usePlanning()
   const { toast } = useToast()
   const [personneId, setPersonneId] = useState(personnesPlanning[0].id)

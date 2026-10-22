@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PageFormulaire } from '@/components/forms/PageFormulaire'
@@ -17,6 +18,8 @@ const modeles = [
 ]
 
 export function NouveauFormulaire() {
+  usePageTitle('Nouveau formulaire')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { creer } = useFormulaires()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { FileBarChart } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -22,6 +23,8 @@ const onglets = [
 ]
 
 export function Rapports() {
+  usePageTitle('Rapports comptables')
+
   const { ecritures, plan, budget, exercice, exerciceId, chargement } = useCompta()
   const [onglet, setOnglet] = useState('resultat')
 

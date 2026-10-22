@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, FolderPlus, Pencil, Plus, Tag as TagIcon, Trash2, Users } from 'lucide-react'
@@ -16,6 +17,8 @@ import { useToast } from '@/context/ToastContext'
 import type { Groupe, Tag } from '@/lib/mock'
 
 export function GroupesTags() {
+  usePageTitle('Groupes et étiquettes')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const {

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Landmark, Pencil, Plus, Wallet } from 'lucide-react'
@@ -25,6 +26,8 @@ const compteVide: Omit<CompteBancaire, 'id'> = {
 }
 
 export function Comptes() {
+  usePageTitle('Comptes bancaires')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { comptes, mouvements, chargement, creerCompte, modifierCompte } = useTresorerie()

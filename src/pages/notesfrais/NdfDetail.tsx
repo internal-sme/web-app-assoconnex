@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState, type ReactNode } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Check, Paperclip, Pencil, ReceiptText, Send, Upload, Wallet, X } from 'lucide-react'
@@ -30,6 +31,8 @@ function Ligne({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function NdfDetail() {
+  usePageTitle('Note de frais')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()

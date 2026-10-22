@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardBody, CardHeader } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { EmptyState } from '@/components/ui/EmptyState'
+import { usePageTitle } from '@/hooks/usePageTitle'
 
 export type FicheModule = {
   titre: string
@@ -22,6 +23,7 @@ export type FicheModule = {
  * construits. Elle annonce le périmètre plutôt que de renvoyer vers une page morte.
  */
 export function ModuleAVenir({ fiche }: { fiche: FicheModule }) {
+  usePageTitle(fiche.titre)
   const navigate = useNavigate()
 
   return (

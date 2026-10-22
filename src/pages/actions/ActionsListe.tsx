@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { AlertTriangle, CheckCircle2, Eye, Pencil, Plus, RefreshCw, RotateCw, Target, Trash2, Upload, X } from 'lucide-react'
@@ -139,6 +140,8 @@ function ModalImport({ open, onClose }: { open: boolean; onClose: () => void }) 
 /* ------------------------------ La liste ------------------------------- */
 
 export function ActionsListe() {
+  usePageTitle('Actions associatives')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const [params, setParams] = useSearchParams()

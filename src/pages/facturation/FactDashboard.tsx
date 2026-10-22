@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { FileText, Plus, RefreshCw, Send } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -23,6 +24,8 @@ import {
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function FactDashboard() {
+  usePageTitle('Facturation')
+
   const navigate = useNavigate()
   const { factures, clients, chargement, erreur, recharger } = useFacturation()
 

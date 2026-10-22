@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Plus, RefreshCw, Tag, Wallet } from 'lucide-react'
@@ -19,6 +20,8 @@ import { suggererCategorie, type Mouvement, type SensMouvement } from '@/lib/tre
 import { formatDate, formatMoney } from '@/lib/utils'
 
 export function Mouvements() {
+  usePageTitle('Mouvements')
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { mouvements, comptes, categories, chargement, erreur, recharger, categoriser, categoriserLot } = useTresorerie()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Pencil, Plus, Settings2, Trash2 } from 'lucide-react'
@@ -29,6 +30,8 @@ const vide: Omit<TypeAdhesion, 'id'> = {
 }
 
 export function TypesAdhesion() {
+  usePageTitle("Types d'adhésion")
+
   const navigate = useNavigate()
   const { toast } = useToast()
   const { types, compterType, creerType, modifierType, supprimerType } = useAdherents()

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
@@ -34,6 +35,8 @@ import {
 import { formatDateTime } from '@/lib/utils'
 
 export function CampFiche() {
+  usePageTitle('Campagne')
+
   const navigate = useNavigate()
   const { id } = useParams()
   const {

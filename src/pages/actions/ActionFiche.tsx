@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useEffect, useState, type ReactNode } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { ArrowLeft, Ban, CalendarDays, MapPin, Pencil, Send, Smartphone, Target, Trash2, Users } from 'lucide-react'
@@ -83,6 +84,8 @@ function DescriptionRendue({ texte }: { texte: string }) {
 }
 
 export function ActionFiche() {
+  usePageTitle('Action')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const [params, setParams] = useSearchParams()

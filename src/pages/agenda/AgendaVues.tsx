@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, CalendarDays, Plus, RefreshCw } from 'lucide-react'
@@ -44,6 +45,8 @@ const meta: Record<PortefeuilleAgenda, { titre: string; description: string; vid
 }
 
 export function AgendaVues({ portefeuille }: { portefeuille: PortefeuilleAgenda }) {
+  usePageTitle('Agenda')
+
   const navigate = useNavigate()
   const { evenements, calendriers, chargement, erreur, recharger, basculerCalendrier } = useAgenda()
 

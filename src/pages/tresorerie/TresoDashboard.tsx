@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate } from 'react-router-dom'
 import { AlertTriangle, ArrowLeftRight, Plus, RefreshCw, Wallet } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -27,6 +28,8 @@ import { formatDate, formatMoney } from '@/lib/utils'
 const horizons: Horizon[] = [30, 60, 90]
 
 export function TresoDashboard() {
+  usePageTitle('Trésorerie')
+
   const navigate = useNavigate()
   const { comptes, mouvements, previsions, categories, horizon, setHorizon, chargement, erreur, recharger } = useTresorerie()
 

@@ -1,3 +1,4 @@
+import { usePageTitle } from '@/hooks/usePageTitle'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Download, FileText, Printer } from 'lucide-react'
 import { Page, PageHeader } from '@/components/layout/PageLayout'
@@ -13,6 +14,8 @@ import { ligneHT, totalHT, totalTTC, totalTVA, ventilationTVA } from '@/lib/fact
 import { formatDateLong, formatMoney } from '@/lib/utils'
 
 export function FactureApercu() {
+  usePageTitle('Aperçu facture')
+
   const { id = '' } = useParams()
   const navigate = useNavigate()
   const { toast } = useToast()
